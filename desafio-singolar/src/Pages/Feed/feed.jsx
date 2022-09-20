@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CardPosts from "../../Components/Posts/cardPosts";
+import { FeedContainer } from "./styled";
 
 
 const Feed = () => {
@@ -34,9 +35,9 @@ const Feed = () => {
 })
 
     return (
-        <div>
+        <FeedContainer>
             {postagens}
-        </div>
+        </FeedContainer>
     )
 }
 export default Feed;

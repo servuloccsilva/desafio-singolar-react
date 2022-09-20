@@ -9,9 +9,9 @@ const CardPosts = (props) => {
           <Body>{props.body}</Body>
         </PostRow>
         <ButtonsRow>
-          <button>View Post</button>
-          <button>Edit</button>
-          <button>Delete</button>
+          <button className='viewPost'>View Post</button>
+          <button className='edit'>Edit</button>
+          <button className='delete'>Delete</button>
         </ButtonsRow>
     </CardContainet>
   )
