@@ -1,9 +1,10 @@
-
+import React from "react";
+import Router from "./Routes/router";
 
 function App() {
   return (
     <div>
-     Início do Projeto: Desafio SINGOLAR
+      <Router/>
     </div>
   );
 }
