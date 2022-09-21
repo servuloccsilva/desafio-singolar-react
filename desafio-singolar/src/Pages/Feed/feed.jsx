@@ -4,12 +4,13 @@ import CardPosts from "../../Components/Posts/cardPosts";
 import { FeedContainer } from "./styled";
 import { ButtonForm, FormAndPosts, FormInput } from "./styled";
 import useForm from "../../Hooks/useForm";
+import axios from 'axios'
 
 const Feed = () => {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
   const [createNewPost, setCreateNewPost] = useState([])
-  const [form, onChange, clear] = useForm({ title: "", body: "", userId: "1" });
+  
 
   useEffect(() => {
     getPostagens();
@@ -27,37 +28,51 @@ const Feed = () => {
   //Criar postagens
   const onSubmitForm = (event) => {
       event.preventDefault();
-    createPost();
+      createPost();
   };
+  const [form, onChange, clear] = useForm({ userId: 1, id: 101, title: "", body: ""  });
 
-  const createPost = async (title, body) => {
+//   const createPost = async (title, body) => {
       
-    const postData = form
-    await fetch("https://jsonplaceholder.typicode.com/posts", {
-        method: "POST",
-      body: JSON.stringify({
-          postData
-        }),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        }
-    })
-    .then((res) => {
-        if (res.status !== 201) {
-            return;
-        } else {
-            return res.json();
-        }
-    })
-    .then((data) => {
-        setPosts([...posts, data]);
-        // getPostagens()
-        clear()
-    })
-    .catch((err) => {
-        console.log(err);
-      });
-    };
+//     const postData = form
+//     await fetch("https://jsonplaceholder.typicode.com/posts", {
+//         method: "POST",
+//       body: JSON.stringify({
+//           postData
+//         }),
+//         headers: {
+//             'Content-type': 'application/json; charset=UTF-8',
+//         }
+//     })
+//     .then((res) => {
+//         if (res.status !== 201) {
+//             return;
+//         } else {
+//             return res.json();
+//         }
+//     })
+//     .then((data) => {
+//         setPosts([...posts, data]);
+//         // getPostagens()
+//         clear()
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//       });
+//     };
+
+    const createPost = async () => {
+        const dados = form
+        await axios.post('https://jsonplaceholder.typicode.com/posts/', dados)
+        .then((res) => {
+            setPosts([...posts, dados])
+            clear()
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+
 
       //Deletar post
 
