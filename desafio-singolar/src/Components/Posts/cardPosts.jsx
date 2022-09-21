@@ -30,11 +30,11 @@ const CardPosts = (props) => {
   })
 
 
-
+console.log(props);
   return (
     <CardContainet>
         <PostRow>
-          <Username>Posted by: <span>{findUsuario}</span></Username>
+          {/* <Username>Posted by: <span>{findUsuario}</span></Username> */}
           <Title>{props.title}</Title>
           <Body>{props.body}</Body>
         </PostRow>

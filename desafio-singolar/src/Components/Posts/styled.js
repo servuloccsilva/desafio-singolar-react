@@ -48,7 +48,7 @@ export const ButtonsRow = styled.div`
         /* border-right: 1px solid black; */
 
         :hover {
-        background-color: green;
+        background-color: #71bf43;
         border-radius: 3px;
         }    
     }
