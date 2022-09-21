@@ -58,6 +58,26 @@ const Feed = () => {
         console.log(err);
       });
     };
+
+      //Deletar post
+
+  const deletePostagem = async (id) => {
+    await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+      method: 'DELETE'
+    })
+    .then((res) => {
+      if(res.status !==200){
+        return
+      } else {
+        setPosts(posts.filter((post) => {
+            return post.id !== id
+        }))
+      }
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+  }
     
     
     const postagens = posts.map((post) => {
@@ -68,11 +88,11 @@ const Feed = () => {
           userId={post.userId}
           title={post.title}
           body={post.body}
+          deletePostagem={deletePostagem}
+
         />
       );
     });
-    console.log(posts)
-    console.log(form)
     
   return (
     <FeedContainer>

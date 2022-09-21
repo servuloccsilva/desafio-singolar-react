@@ -30,11 +30,17 @@ const CardPosts = (props) => {
   })
 
 
-console.log(props);
+// console.log(props);
+
+const handleDelete = () => {
+  props.deletePostagem(props.id)
+}
+
+
   return (
     <CardContainet>
         <PostRow>
-          {/* <Username>Posted by: <span>{findUsuario}</span></Username> */}
+          <Username>Posted by: <span>{findUsuario}</span></Username>
           <Title>{props.title}</Title>
           <Body>{props.body}</Body>
         </PostRow>
@@ -46,7 +52,7 @@ console.log(props);
             View Post
           </button>
           <button className='edit'>Edit</button>
-          <button className='delete'>Delete</button>
+          <button className='delete' onClick={handleDelete}>Delete</button>
         </ButtonsRow>
     </CardContainet>
   )
