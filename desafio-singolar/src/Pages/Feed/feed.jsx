@@ -17,6 +17,7 @@ const Feed = () => {
         .then((res) => 
             res.json())
         .then((data) => 
+            
             setPosts(data))
         .catch((err) =>
             console.log(err))
@@ -28,7 +29,7 @@ const Feed = () => {
         return <CardPosts
         id={post.id}
         key={post.id}
-        user={post.userId}
+        userId={post.userId}
         title={post.title}
         body={post.body}
         />

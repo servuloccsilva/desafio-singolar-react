@@ -35,6 +35,7 @@ export const ButtonsRow = styled.div`
         border-radius: 3px;
         background-color: white;
         font-weight: bold;
+        margin: 2px;
         color: #888b8d;
         cursor: pointer;
 
@@ -66,6 +67,14 @@ export const ButtonsRow = styled.div`
         }    
     }
 
+`
+export const Username = styled.div`
+    margin-left: 20px;
+    margin-top: 6px;
+    font-size: 0.9em;
+    span {
+        font-weight: bold;
+    }
 `
 
 export const Title = styled.div`
