@@ -30,10 +30,13 @@ const CardPosts = (props) => {
   })
 
 
-// console.log(props);
 
 const handleDelete = () => {
-  props.deletePostagem(props.id)
+
+  const result = window.confirm("Are you sure you want to delete this post?")
+      if(result){
+        props.deletePostagem(props.id)
+      }
 }
 
 

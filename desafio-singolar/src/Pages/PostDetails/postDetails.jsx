@@ -1,39 +1,58 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import  CardDetails  from '../../Components/CardDetails/cardDetails'
+
 
 const PostDetails = (props) => {
 
-    const postId = useParams()
+    const {postId} = useParams()
 
-    const [post, setPosts] = useState([])
+    const [postsDetails, setPostsDetails] = useState([])
 
     useEffect(() => {
-        getPostagens()
+        getPostagem()
     }, [])
     
-    const getPostagens = async () => {
-        await fetch('https://jsonplaceholder.typicode.com/posts')
-        .then((res) => 
-            res.json())
-        .then((data) => 
-            setPosts(data))
-        .catch((err) =>
-            console.log(err))
-    }
+    //Pegar postagens
+    const getPostagem = async () => {
+        await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+        .then((res) => res.json())
+        .then((data) => setPostsDetails(data))
+        .catch((err) => console.log(err));
+    };
 
+    console.log(postsDetails);
     // Pegando apenas o post específico 
-    const filtrandoPosts = (posts) => {
-        return posts.find((post)=>{
-            if(post.id === postId.id){
-                return true
-            }
-        })
-    }
+    // const mapPostagem = postsDetails.map((post) => {
+    //     return (
+    //     <CardDetails
+    //     id = {post.id}
+    //     key = {post.id}
+    //     title = {post.title}
+    //     body = {post.body}
+    //     uderId = {post.userId}
+    //     />
+    //     )
+    // })
+
+    console.log(postId);
+
+
 
 
     return (
         <div>
-            Details
+            
+            <CardDetails
+                id = {postsDetails.id}
+                key = {postsDetails.id}
+                title = {postsDetails.title}
+                body = {postsDetails.body}
+                uderId = {postsDetails.userId}
+            />
+
+
+            {/* {postsDetails ? postsDetails.map((post) => { return post.title}) : 'Loading ...'} */}
         </div>
     )
 }
