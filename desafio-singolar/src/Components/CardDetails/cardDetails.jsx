@@ -1,13 +1,17 @@
 import React from 'react'
+import { Body, CardContainer, PostRow, Title, Username } from './styled';
 
 const CardDetails = (props) => {
 
-    console.log(props.title);
     return (
-        <div>
-            <p>{props.title}</p>
-            <p>{props.body}</p>
-        </div>
+        <CardContainer>
+        <PostRow>
+          <Username>Posted by: <span>{props.username}</span></Username>
+          <Title>{props.title}</Title>
+          <Body>{props.body}</Body>
+        </PostRow>
+        
+    </CardContainer>
     )
 }
 

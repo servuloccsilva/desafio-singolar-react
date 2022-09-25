@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { goToPostDetails } from '../../Routes/coordinator'
-import { Body, ButtonsRow, CardContainet, PostRow, Title, Username } from './styled'
+import { Body, ButtonsRow, CardContainer, PostRow, Title, Username } from './styled'
 
 const CardPosts = (props) => {
 
@@ -41,7 +41,7 @@ const handleDelete = () => {
 
 
   return (
-    <CardContainet>
+    <CardContainer>
         <PostRow>
           <Username>Posted by: <span>{findUsuario}</span></Username>
           <Title>{props.title}</Title>
@@ -57,7 +57,7 @@ const handleDelete = () => {
           <button className='edit'>Edit</button>
           <button className='delete' onClick={handleDelete}>Delete</button>
         </ButtonsRow>
-    </CardContainet>
+    </CardContainer>
   )
 }
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CardContainet = styled.div`
+export const CardContainer = styled.div`
     border: 2px solid #cccccc;
     background-color: white;
     border-radius: 3px;
