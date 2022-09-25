@@ -5,7 +5,7 @@ const CardUser = (props) => {
 
     return (
         <UserContainer>
-            <p>User Datails: </p>
+            <h4>User Datails: </h4>
             <p>Name: {props.name}</p>
             <p>Username: {props.username}</p>
             <p>Email: {props.email}</p>

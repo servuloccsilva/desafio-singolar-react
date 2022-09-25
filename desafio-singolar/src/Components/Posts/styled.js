@@ -1,19 +1,27 @@
 import styled from 'styled-components'
 
 export const CardContainer = styled.div`
-    border: 2px solid #cccccc;
-    background-color: white;
-    border-radius: 3px;
-    width: 600px;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    border-radius: 8px;
+    width: 60%;
+    min-width: 320px;
     min-height: 100px;
     display: flex;
     flex-direction: column;
     flex: 1;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 12px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.15);
     margin: 8px;
+
+    font-family:Segoe UI Historic;
+    font-size:15px;
+    letter-spacing:0;
+    font-style:normal;
+    font-weight:400;
+    color: rgba(5,5,5,1);
     
     :hover {
-        border: 2px solid #898989;
+        border: 1px solid #898989;
     }
 `
 
@@ -21,6 +29,10 @@ export const PostRow = styled.div`
     display: flex;
     flex-direction: column;
     flex: 2;
+
+    .username {
+        margin-top: -15px;
+    }
 `
 
 export const ButtonsRow = styled.div`
@@ -70,15 +82,16 @@ export const ButtonsRow = styled.div`
 `
 export const Username = styled.div`
     margin-left: 20px;
-    margin-top: 6px;
-    font-size: 0.9em;
+    /* margin-top: 6px; */
+    /* font-size: 0.9em; */
     span {
         font-weight: bold;
     }
 `
 
 export const Title = styled.div`
-    margin: 20px;
+    margin-left: 20px;
+    margin-bottom: 15px;
     font-weight: bold;
     font-size: 1.1em;
 `

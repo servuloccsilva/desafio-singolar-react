@@ -10,7 +10,7 @@ export const CardContainer = styled.div`
     flex-direction: column;
     flex: 1;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.15);
-    margin-top: 20px;
+    margin-bottom: 20px;
 
     font-family:Segoe UI Historic;
     font-size:15px;
@@ -34,15 +34,14 @@ export const PostRow = styled.div`
 export const Username = styled.div`
     margin-left: 20px;
     margin-top: 6px;
-    
-    .username {
-        margin-top: -15px;
+    font-size: 0.9em;
+    span {
+        font-weight: bold;
     }
 `
 
 export const Title = styled.div`
-    margin-left: 20px;
-    margin-bottom: 10px;
+    margin: 20px;
     font-weight: bold;
     font-size: 1.1em;
 `

@@ -25,7 +25,10 @@ const CardPosts = (props) => {
 
   const findUsuario = users.map((user) => {
     if(user.id == props.userId) {
-      return user.username
+      return <div>
+        <p><b>{user.name}</b></p>
+        <p className='username'>@{user.username}</p>
+      </div>
     }
   })
 
@@ -43,7 +46,7 @@ const handleDelete = () => {
   return (
     <CardContainer>
         <PostRow>
-          <Username>Posted by: <span>{findUsuario}</span></Username>
+          <Username>{findUsuario}</Username>
           <Title>{props.title}</Title>
           <Body>{props.body}</Body>
         </PostRow>

@@ -11,7 +11,8 @@ export const FeedContainer = styled.div`
 `;
 
 export const FormAndPosts = styled.div`
-  width: 600px;
+  width: 60%;
+  min-width: 320px;
   border: 2px solid #cccccc;
   border-radius: 3px;
   margin: 10px;
@@ -26,6 +27,16 @@ export const FormInput = styled.div`
         flex-direction: column;
         justify-content: space-between;
         margin: 12px;
+
+    .title {
+      margin-bottom: 8px;
+    }
+
+    button {
+      :hover {
+        cursor: pointer;
+      }
+    }
 
        
 

@@ -1,22 +1,26 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import CardComment from "../../Components/CardComment/cardComment";
 import  CardDetails  from '../../Components/CardDetails/cardDetails'
+import CardOtherPosts from "../../Components/CardOtherPosts/cardOtherPosts";
 import CardUser from "../../Components/CardUser/cardUser";
-import { DetailsContainer, PostDetailsSide, UserSide } from "./styled";
+import { Comment, DetailsContainer, PostDetailsSide, UserSide } from "./styled";
 
 
-const PostDetails = (props) => {
+const Details = (props) => {
 
     const {postId} = useParams()
 
     const [postsDetails, setPostsDetails] = useState([])
     const [comments, setComments] = useState([])
     const [users, setUsers] = useState([])
+    const [otherPosts, setOtherPosts] = useState([])
 
     useEffect(() => {
         getPostagem()
         getComentarios()
         getUsuarios()
+        getOutrasPostagens()
     }, [])
     
     //Pegar postagens
@@ -36,9 +40,13 @@ const PostDetails = (props) => {
     };
 
     const mapComentarios = comments.map((comment) => {
-        return <div>
-            <p>{comment.name}</p>
-        </div>
+        return <CardComment
+        key={comment.id}
+        id={comment.id}
+        postId={comment.postId}
+        name={comment.name}
+        body={comment.body}
+        />
     })
 
     //Pegar Usuário
@@ -55,9 +63,13 @@ const PostDetails = (props) => {
     //Map para passar nome do username para o card do post
     const findUsuario = users.map((user) => {
       if(user.id == postsDetails.userId) {
-        return user.username
+        return <div>
+            <p><b>{user.name}</b></p>
+            <p className='username'>@{user.username}</p>
+      </div>
       }
     })
+
 
     //Map para card com informações do user
     const mapUsuario = users.map((user) => {
@@ -72,6 +84,27 @@ const PostDetails = (props) => {
           />
         }
       })
+
+      //Pegar outras postagens do mesmo usuário
+      const getOutrasPostagens = async () => {
+        await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${postsDetails.userId}`)
+        .then((res) => res.json())
+        .then((data) => setOtherPosts(data))
+        .catch((err) => console.log(err));
+    };
+
+    //Map outras postagens
+
+    const mapOutrosPosts = otherPosts.map((post) => {
+        return <CardOtherPosts
+        key={post.id}
+        id={post.id}
+        userId={post.userId}
+        title={post.title}
+        body={post.body}
+        // findUsuario={findUsuario}
+        />
+    })
 
 
     return (
@@ -88,15 +121,29 @@ const PostDetails = (props) => {
                     uderId = {postsDetails.userId}
                     username = {findUsuario}
                     />
-                    <div>
-                        Comments: 
-                    </div>
+                    <br/>
+                    <Comment>
+                        {/* <br/> */}
+                        <p>Comments: </p>
+                        
+                    </Comment>
                     <div>
                         {mapComentarios}
+                    </div>
+                    <div>
+                        <br/>
+                        <Comment>
+                            <br/>
+                            Other posts from this user: 
+                        </Comment>
+                    </div>
+                    <div>
+                        <br/>
+                        {mapOutrosPosts} 
                     </div>
 
             </PostDetailsSide>
         </DetailsContainer>
     )
 }
-export default PostDetails;
+export default Details;

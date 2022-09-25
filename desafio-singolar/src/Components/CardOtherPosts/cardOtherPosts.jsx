@@ -1,12 +1,12 @@
 import React from 'react'
 import { Body, CardContainer, PostRow, Title, Username } from './styled';
 
-const CardDetails = (props) => {
+const CardOtherPosts = (props) => {
 
     return (
         <CardContainer>
         <PostRow>
-          <Username>{props.username}</Username>
+          {/* <Username><b>{props.findUsuario}</b></Username> */}
           <Title>{props.title}</Title>
           <Body>{props.body}</Body>
         </PostRow>
@@ -15,4 +15,4 @@ const CardDetails = (props) => {
     )
 }
 
-export default CardDetails
+export default CardOtherPosts

@@ -95,7 +95,6 @@ const Feed = () => {
       );
     });
 
-    console.log(posts);
     
   return (
     <FeedContainer>
@@ -103,6 +102,7 @@ const Feed = () => {
         <FormInput>
           <form onSubmit={onSubmitForm}>
             <TextField
+              className="title"
               id="title"
               label="Title"
               variant="outlined"
@@ -113,6 +113,7 @@ const Feed = () => {
               type={"text"}
             />
             <TextField
+            className="body"
               id="body"
               label="Message"
               variant="outlined"

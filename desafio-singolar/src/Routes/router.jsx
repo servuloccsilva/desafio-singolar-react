@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import Feed from "../Pages/Feed/feed"
-import PostDetails from "../Pages/PostDetails/postDetails"
+import Details from "../Pages/Details/datails"
 
 const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
                 <Route index element={<Feed/>}/>
-                <Route path='/:postId' element={<PostDetails/>}/>
+                <Route path='/:postId' element={<Details/>}/>
             </Routes>
         </BrowserRouter>
     )
