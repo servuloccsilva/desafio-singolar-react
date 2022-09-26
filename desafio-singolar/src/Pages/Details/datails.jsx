@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CardComment from "../../Components/CardComment/cardComment";
 import  CardDetails  from '../../Components/CardDetails/cardDetails'
-import CardOtherPosts from "../../Components/CardOtherPosts/cardOtherPosts";
+import CardOutrosPosts from "../../Components/CardOtherPosts/cardOtherPosts";
 import CardUser from "../../Components/CardUser/cardUser";
-import { Comment, DetailsContainer, PostDetailsSide, UserSide } from "./styled";
+import Header from "../../Components/Header/header";
+import { CardOutros, Comment, DetailsContainer, PostDetailsSide, UserSide } from "./styled";
 
 
 const Details = (props) => {
@@ -93,39 +94,39 @@ const Details = (props) => {
         .catch((err) => console.log(err));
     };
 
+
     //Map outras postagens
 
-    const mapOutrosPosts = otherPosts.map((post) => {
-        return <CardOtherPosts
-        key={post.id}
-        id={post.id}
-        userId={post.userId}
-        title={post.title}
-        body={post.body}
-        // findUsuario={findUsuario}
-        />
+    const mapOutrosPosts = otherPosts.map((posts) => {
+        return <>
+            <CardOutros>
+                <h4>{posts.title}</h4>
+                <p>{posts.body}</p> 
+            </CardOutros>
+        </>
     })
 
 
+
     return (
-        <DetailsContainer>
-            <UserSide>
-                {mapUsuario}
-            </UserSide>
-            <PostDetailsSide>
-                <CardDetails
-                    id = {postsDetails.id}
-                    key = {postsDetails.id}
-                    title = {postsDetails.title}
-                    body = {postsDetails.body}
-                    uderId = {postsDetails.userId}
-                    username = {findUsuario}
+        <>
+            <Header/>
+            <DetailsContainer>
+                <UserSide>
+                    {mapUsuario}
+                </UserSide>
+                <PostDetailsSide>
+                    <CardDetails
+                        id = {postsDetails.id}
+                        key = {postsDetails.id}
+                        title = {postsDetails.title}
+                        body = {postsDetails.body}
+                        uderId = {postsDetails.userId}
+                        username = {findUsuario}
                     />
                     <br/>
                     <Comment>
-                        {/* <br/> */}
                         <p>Comments: </p>
-                        
                     </Comment>
                     <div>
                         {mapComentarios}
@@ -139,11 +140,12 @@ const Details = (props) => {
                     </div>
                     <div>
                         <br/>
-                        {mapOutrosPosts} 
+                        {mapOutrosPosts}
                     </div>
 
-            </PostDetailsSide>
-        </DetailsContainer>
+                </PostDetailsSide>
+            </DetailsContainer>
+        </>
     )
 }
 export default Details;

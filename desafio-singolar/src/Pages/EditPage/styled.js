@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const FeedContainer = styled.div`
   background-color: #dae0e6;
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 `
 
@@ -58,13 +58,3 @@ export const ButtonForm = styled.div`
     }
   }
 `
-
-export const PostsOnly = styled.div`
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: center;
-  align-items: center;
-  
-`
-
-

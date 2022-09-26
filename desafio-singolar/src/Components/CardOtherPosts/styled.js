@@ -24,30 +24,23 @@ export const CardContainer = styled.div`
     }
 `
 
-export const PostRow = styled.div`
-    display: flex;
-    flex-direction: column;
-    flex: 2;
-`
+// export const Username = styled.div`
+//     margin-left: 20px;
+//     margin-top: 6px;
+//     font-size: 0.9em;
+//     span {
+//         font-weight: bold;
+//     }
+// `
 
+// export const Title = styled.div`
+//     margin: 20px;
+//     font-weight: bold;
+//     font-size: 1.1em;
+// `
 
-export const Username = styled.div`
-    margin-left: 20px;
-    margin-top: 6px;
-    font-size: 0.9em;
-    span {
-        font-weight: bold;
-    }
-`
-
-export const Title = styled.div`
-    margin: 20px;
-    font-weight: bold;
-    font-size: 1.1em;
-`
-
-export const Body = styled.div`
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-`
+// export const Body = styled.div`
+//     margin-left: 20px;
+//     margin-right: 20px;
+//     margin-bottom: 20px;
+// `

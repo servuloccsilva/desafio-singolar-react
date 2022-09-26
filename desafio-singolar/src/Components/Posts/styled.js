@@ -52,38 +52,34 @@ export const ButtonsRow = styled.div`
         cursor: pointer;
 
         :hover {
-            color: white;
+            /* color: white; */
             transition: 0.3s;
         }
     }
     .viewPost {
-        /* border-right: 1px solid black; */
 
         :hover {
-        background-color: #71bf43;
-        border-radius: 3px;
+            background-color: #dae0e6;
+            border-radius: 3px;
         }    
     }
     .edit {
-        /* border-right: 1px solid black; */
         
         :hover {
-        background-color: blue;
+            background-color: #dae0e6;
         }    
     }
     .delete {
         
         :hover {
-        background-color: red;
-        border-radius: 3px;
+            background-color: #dae0e6;
+            border-radius: 3px;
         }    
     }
 
 `
 export const Username = styled.div`
     margin-left: 20px;
-    /* margin-top: 6px; */
-    /* font-size: 0.9em; */
     span {
         font-weight: bold;
     }

@@ -7,8 +7,6 @@ const CardComment = (props) => {
         <CommentContainer>
         <h5>{props.name}</h5>
         <p>{props.body}</p>
-        
-        
     </CommentContainer>
     )
 }

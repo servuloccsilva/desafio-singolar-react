@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { goToPostDetails } from '../../Routes/coordinator'
+import { goToEditPage, goToPostDetails } from '../../Routes/coordinator'
 import { Body, ButtonsRow, CardContainer, PostRow, Title, Username } from './styled'
 
 const CardPosts = (props) => {
@@ -57,7 +57,9 @@ const handleDelete = () => {
           >
             View Post
           </button>
-          <button className='edit'>Edit</button>
+          <button className='edit' 
+          onClick={()=> goToEditPage(navigate, props.id)}
+          >Edit</button>
           <button className='delete' onClick={handleDelete}>Delete</button>
         </ButtonsRow>
     </CardContainer>

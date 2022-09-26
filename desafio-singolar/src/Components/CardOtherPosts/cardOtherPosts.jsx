@@ -1,18 +1,14 @@
 import React from 'react'
-import { Body, CardContainer, PostRow, Title, Username } from './styled';
+import { CardContainer } from './styled';
 
-const CardOtherPosts = (props) => {
+const CardOutrosPosts = (props) => {
 
     return (
         <CardContainer>
-        <PostRow>
-          {/* <Username><b>{props.findUsuario}</b></Username> */}
-          <Title>{props.title}</Title>
-          <Body>{props.body}</Body>
-        </PostRow>
-        
+            <h4>{props.title}</h4>
+            <p>{props.body}</p>
     </CardContainer>
     )
 }
 
-export default CardOtherPosts
+export default CardOutrosPosts
